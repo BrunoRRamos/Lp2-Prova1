@@ -1,9 +1,8 @@
 package LULA_Sistema;
 
-import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 class LocalTest {
     private Local localTest;
@@ -13,4 +12,7 @@ class LocalTest {
         localTest = new Local("CAA", "Central de Aulas", "223344");
     }
 
+    @Test
+    void getIdentificadorTextua() {
+    }
 }
