@@ -16,13 +16,13 @@ class LULASistemaTest {
     }
 
     @Test
-    void cadastraLocal() {
+    void cadastraLocalTest() {
         sistemaTest.cadastraLocal("BG", "Central de Barcas", "3344");
         assertEquals("BG - Central de Barcas - 3344", sistemaTest.exibeLocal("BG"));
     }
 
     @Test
-    void cadastraLocalExceptions() {
+    void cadastraLocalExceptionsTest() {
         exception = assertThrows(IllegalArgumentException.class, () -> {
             sistemaTest.cadastraLocal("", "Bloco de barcas", "7744");
         });
@@ -45,13 +45,13 @@ class LULASistemaTest {
     }
 
     @Test
-    void cadastraComitiva() {
+    void cadastraComitivaTest() {
         sistemaTest.cadastraComitiva(1, "Apresentação de TCC", 30, "2233-4455");
         assertEquals("ID: 1\nComitiva: Apresentação de TCC\nIntegrantes: 30\nContato: 2233-4455", sistemaTest.exibeComitiva(1));
     }
 
     @Test
-    void cadastraComitivaExceptions() {
+    void cadastraComitivaExceptionsTest() {
         exception = assertThrows(IndexOutOfBoundsException.class, () -> {
             sistemaTest.cadastraComitiva(-1, "Aulão de Cálculo 2", 120, "2456-6753");
         });
@@ -84,12 +84,12 @@ class LULASistemaTest {
     }
 
     @Test
-    void exibeComitiva() {
+    void exibeComitivaTest() {
         assertEquals("ID: 0\nComitiva: Calourada\nIntegrantes: 100\nContato: 9988-3344", sistemaTest.exibeComitiva(0));
     }
 
     @Test
-    void exibeComitivaExceptions() {
+    void exibeComitivaExceptionsTest() {
         exception = assertThrows(IllegalArgumentException.class, () -> {
             sistemaTest.exibeComitiva(70);
         });
@@ -107,12 +107,12 @@ class LULASistemaTest {
     }
 
     @Test
-    void exibeLocal() {
+    void exibeLocalTest() {
         assertEquals("CAA - Central de Aulas - 1122", sistemaTest.exibeLocal("CAA"));
     }
 
     @Test
-    void exibeLocalExceptions() {
+    void exibeLocalExceptionsTest() {
         exception = assertThrows(IllegalArgumentException.class, () -> {
             sistemaTest.exibeLocal("KG");
         });

@@ -15,10 +15,7 @@ class ComitivaTest {
     }
 
     @Test
-    void getCodigoIdentificacao() {
-    }
-
-    @Test
-    void testToString() {
+    void testToStringTest() {
+        assertEquals("ID: 0\nComitiva: Calourada Computação\nIntegrantes: 100\nContato: 299834", comitivaTest.toString());
     }
 }

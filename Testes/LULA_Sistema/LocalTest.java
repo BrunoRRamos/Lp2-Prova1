@@ -8,12 +8,12 @@ class LocalTest {
     private Local localTest;
 
     @BeforeEach
-    void preparaLocal() {
+    void preparaLocalTest() {
         localTest = new Local("CAA", "Central de Aulas", "223344");
     }
 
     @Test
-    void getIdentificadorTextual() {
-
+    void toStringTest() {
+        assertEquals("CAA - Central de Aulas - 223344", localTest.toString());
     }
 }
