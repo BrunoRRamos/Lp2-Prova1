@@ -85,17 +85,37 @@ class LULASistemaTest {
 
     @Test
     void exibeComitiva() {
+        assertEquals("ID: 0\nComitiva: Calourada\nIntegrantes: 100\nContato: 9988-3344", sistemaTest.exibeComitiva(0));
     }
 
     @Test
     void exibeComitivaExceptions() {
+        exception = assertThrows(IllegalArgumentException.class, () -> {
+            sistemaTest.exibeComitiva(70);
+        });
+        assertEquals("Comitiva não existe", exception.getMessage());
+
+        exception = assertThrows(IndexOutOfBoundsException.class, () -> {
+            sistemaTest.exibeComitiva(-1);
+        });
+        assertEquals("Codigo Inválido", exception.getMessage());
+
+        exception = assertThrows(IndexOutOfBoundsException.class, () -> {
+            sistemaTest.exibeComitiva(100);
+        });
+        assertEquals("Codigo Inválido", exception.getMessage());
     }
 
     @Test
     void exibeLocal() {
+        assertEquals("CAA - Central de Aulas - 1122", sistemaTest.exibeLocal("CAA"));
     }
 
     @Test
     void exibeLocalExceptions() {
+        exception = assertThrows(IllegalArgumentException.class, () -> {
+            sistemaTest.exibeLocal("KG");
+        });
+        assertEquals("Local não existe", exception.getMessage());
     }
 }

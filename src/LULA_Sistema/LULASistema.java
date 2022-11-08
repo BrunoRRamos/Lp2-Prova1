@@ -28,15 +28,14 @@ public class LULASistema {
         TrataErro.verificaStringVazia(telefone);
         TrataErro.verificaStringVazia(descricao);
         TrataErro.verificaNumero(numeroPessoas);
-        if (codigoIdentificacao > 99 || codigoIdentificacao < 0) {
-            throw new IndexOutOfBoundsException("Codigo Invalido");
-        }
+        TrataErro.verificaPosicaoValida(codigoIdentificacao);
         verificaExistenciaComitiva(codigoIdentificacao);
         comitivas[codigoIdentificacao] = new Comitiva(codigoIdentificacao, descricao, numeroPessoas, telefone);
     }
 
     public String exibeComitiva(int codigoIdentificador) {
         String comitiva = "";
+        TrataErro.verificaPosicaoValida(codigoIdentificador);
         for (int i = 0; i < comitivas.length; i++) {
             if (comitivas[i] != null && comitivas[i].getCodigoIdentificacao() == codigoIdentificador) {
                 comitiva = comitivas[i].toString();

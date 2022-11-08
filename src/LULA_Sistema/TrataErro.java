@@ -12,4 +12,10 @@ public class TrataErro {
             throw new IllegalArgumentException("Número de pessoas inválido");
         }
     }
+
+    public static void verificaPosicaoValida(int posicao) {
+        if (posicao > 99 || posicao < 0) {
+            throw new IndexOutOfBoundsException("Codigo Inválido");
+        }
+    }
 }
