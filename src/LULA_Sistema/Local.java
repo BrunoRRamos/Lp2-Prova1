@@ -1,12 +1,15 @@
+package LULA_Sistema;
+
 public class Local {
     private String nome;
     private String ramal;
     private String identificadorTextual;
 
-    public Local(String nome, String ramal, String identificadorTextual) {
+    public Local(String identificadorTextual, String nome, String ramal) {
+        this.identificadorTextual = identificadorTextual;
         this.nome = nome;
         this.ramal = ramal;
-        this.identificadorTextual = identificadorTextual;
+
     }
 
     public String getIdentificadorTextual() {

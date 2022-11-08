@@ -1,3 +1,5 @@
+package LULA_Sistema;
+
 public class TrataErro {
     public static void verificaStringVazia(String string) {
         if (string.isBlank()) {

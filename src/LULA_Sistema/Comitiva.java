@@ -1,14 +1,16 @@
+package LULA_Sistema;
+
 public class Comitiva {
     private int numeroPessoas;
     private int codigoIdentificacao;
     private String telefone;
     private  String descricao;
 
-    public Comitiva(int numeroPessoas, int codigoIdentificacao, String telefone, String descricao) {
-        this.numeroPessoas = numeroPessoas;
+    public Comitiva(int codigoIdentificacao,String descricao, int numeroPessoas, String telefone) {
         this.codigoIdentificacao = codigoIdentificacao;
-        this.telefone = telefone;
         this.descricao = descricao;
+        this.numeroPessoas = numeroPessoas;
+        this.telefone = telefone;
     }
 
     public int getCodigoIdentificacao() {
@@ -17,7 +19,7 @@ public class Comitiva {
 
     @Override
     public String toString() {
-        return "ID: " + this.codigoIdentificacao + "\n" + "Comitiva: " + this.descricao +
+        return "ID: " + this.codigoIdentificacao + "\n" + "LULA_Sistema.Comitiva: " + this.descricao +
                 "\n" + "Integrantes: " +this.numeroPessoas + "\n" + "Contato: " + this.telefone;
     }
 }

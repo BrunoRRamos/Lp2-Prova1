@@ -1,3 +1,5 @@
+package LULA_Sistema;
+
 public class LULASistema {
     private final int NUMERO_DE_LOCAIS = 100;
     private final int NUMERO_DE_COMITIVAS = 100;
@@ -27,7 +29,7 @@ public class LULASistema {
         if (codigoIdentificacao > 99 || codigoIdentificacao < 0) {
             throw new IndexOutOfBoundsException("Codigo Invalido");
         }
-        comitivas[codigoIdentificacao] = new Comitiva(numeroPessoas, codigoIdentificacao, telefone, descricao);
+        comitivas[codigoIdentificacao] = new Comitiva(codigoIdentificacao, descricao, numeroPessoas, telefone);
     }
 
     public String exibeComitiva(int codigoIdentificador) {
