@@ -19,7 +19,15 @@ class LULASistemaTest {
     }
 
     @Test
+    void cadastraLocalExceptions() {
+    }
+
+    @Test
     void cadastraComitiva() {
+    }
+
+    @Test
+    void cadastraComitivaExceptions() {
     }
 
     @Test
@@ -27,6 +35,14 @@ class LULASistemaTest {
     }
 
     @Test
+    void exibeComitivaExceptions() {
+    }
+
+    @Test
     void exibeLocal() {
+    }
+
+    @Test
+    void exibeLocalExceptions() {
     }
 }
