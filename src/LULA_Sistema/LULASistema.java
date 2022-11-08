@@ -11,18 +11,19 @@ public class LULASistema {
         this.comitivas = new Comitiva[NUMERO_DE_COMITIVAS];
     }
 
-    public void cadastraLocal(String nome, String ramal, String identificadorTextual) {
+    public void cadastraLocal(String identificadorTextual,String nome, String ramal) {
         TrataErro.verificaStringVazia(ramal);
         TrataErro.verificaStringVazia(nome);
         TrataErro.verificaStringVazia(identificadorTextual);
         for (int i = 0; i < locais.length; i++) {
             if (locais[i] == null) {
-                locais[i] = new Local(nome, ramal, identificadorTextual);
+                locais[i] = new Local(identificadorTextual, nome, ramal);
+                break;
             }
          }
     }
 
-    public void cadastraComitiva(int numeroPessoas, int codigoIdentificacao, String telefone, String descricao) {
+    public void cadastraComitiva(int codigoIdentificacao, String descricao, int numeroPessoas, String telefone) {
         TrataErro.verificaStringVazia(telefone);
         TrataErro.verificaStringVazia(descricao);
         TrataErro.verificaNumero(numeroPessoas);
@@ -40,22 +41,27 @@ public class LULASistema {
             }
         }
         if (comitiva.isBlank()) {
-            throw new IllegalArgumentException("Comitiva não existe.");
+            throw new IllegalArgumentException("Comitiva não existe");
         }
         return comitiva;
     }
 
     public String exibeLocal(String identificadorTextual) {
-        String local = "";
+        StringBuilder local = new StringBuilder();
         for (int i = 0; i < locais.length; i++) {
             if (locais[i] != null && locais[i].getIdentificadorTextual() == identificadorTextual) {
-                local = locais[i].toString();
+                local.append(locais[i].toString());
             }
         }
-        if (local.isBlank()) {
-            throw new IllegalArgumentException("Local não existe.");
+        if (local.toString().isBlank()) {
+            throw new IllegalArgumentException("Local não existe");
         }
-        return local;
+        return local.toString();
     }
+
+    public String testaGetIdent() {
+        return locais[0].getIdentificadorTextual();
+    }
+
 }
 

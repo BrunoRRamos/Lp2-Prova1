@@ -17,4 +17,8 @@ class ComitivaTest {
     @Test
     void getCodigoIdentificacao() {
     }
+
+    @Test
+    void testToString() {
+    }
 }

@@ -6,7 +6,7 @@ public class Comitiva {
     private String telefone;
     private  String descricao;
 
-    public Comitiva(int codigoIdentificacao,String descricao, int numeroPessoas, String telefone) {
+    public Comitiva(int codigoIdentificacao, String descricao, int numeroPessoas, String telefone) {
         this.codigoIdentificacao = codigoIdentificacao;
         this.descricao = descricao;
         this.numeroPessoas = numeroPessoas;
@@ -19,7 +19,7 @@ public class Comitiva {
 
     @Override
     public String toString() {
-        return "ID: " + this.codigoIdentificacao + "\n" + "LULA_Sistema.Comitiva: " + this.descricao +
+        return "ID: " + this.codigoIdentificacao + "\n" + "Comitiva: " + this.descricao +
                 "\n" + "Integrantes: " +this.numeroPessoas + "\n" + "Contato: " + this.telefone;
     }
 }

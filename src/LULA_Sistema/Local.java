@@ -18,6 +18,6 @@ public class Local {
 
     @Override
     public String toString() {
-        return this.nome + " - " + this.identificadorTextual + " - " + this.ramal;
+        return this.identificadorTextual + " - " + this.nome + " - " + this.ramal;
     }
 }
