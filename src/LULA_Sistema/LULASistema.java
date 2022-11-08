@@ -39,6 +39,9 @@ public class LULASistema {
                 comitiva = comitivas[i].toString();
             }
         }
+        if (comitiva.isBlank()) {
+            throw new IllegalArgumentException("Comitiva não existe.");
+        }
         return comitiva;
     }
 
@@ -48,6 +51,9 @@ public class LULASistema {
             if (locais[i] != null && locais[i].getIdentificadorTextual() == identificadorTextual) {
                 local = locais[i].toString();
             }
+        }
+        if (local.isBlank()) {
+            throw new IllegalArgumentException("Local não existe.");
         }
         return local;
     }
