@@ -9,7 +9,7 @@ public class TrataErro {
 
     public static void verificaNumero(int numero) {
         if (numero < 0) {
-            throw new IllegalArgumentException("Numero Invalido");
+            throw new IllegalArgumentException("Número de pessoas inválido");
         }
     }
 }

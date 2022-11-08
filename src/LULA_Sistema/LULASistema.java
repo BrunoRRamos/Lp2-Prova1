@@ -15,6 +15,7 @@ public class LULASistema {
         TrataErro.verificaStringVazia(ramal);
         TrataErro.verificaStringVazia(nome);
         TrataErro.verificaStringVazia(identificadorTextual);
+        verificaExistenciaLocal(identificadorTextual);
         for (int i = 0; i < locais.length; i++) {
             if (locais[i] == null) {
                 locais[i] = new Local(identificadorTextual, nome, ramal);
@@ -30,6 +31,7 @@ public class LULASistema {
         if (codigoIdentificacao > 99 || codigoIdentificacao < 0) {
             throw new IndexOutOfBoundsException("Codigo Invalido");
         }
+        verificaExistenciaComitiva(codigoIdentificacao);
         comitivas[codigoIdentificacao] = new Comitiva(codigoIdentificacao, descricao, numeroPessoas, telefone);
     }
 
@@ -59,8 +61,18 @@ public class LULASistema {
         return local.toString();
     }
 
-    public String testaGetIdent() {
-        return locais[0].getIdentificadorTextual();
+    public void verificaExistenciaLocal(String identificadorTextual) {
+        for (int i = 0; i < locais.length; i++) {
+            if (locais[i] != null && locais[i].getIdentificadorTextual() == identificadorTextual){
+                throw new IllegalArgumentException("Local já cadastrado");
+            }
+        }
+    }
+
+    public void verificaExistenciaComitiva(int codigoIdentificacao) {
+        if (comitivas[codigoIdentificacao] != null) {
+            throw new IllegalArgumentException("Comitiva já existe com essa identificicação");
+        }
     }
 
 }
