@@ -13,6 +13,10 @@ public class Comitiva {
         this.telefone = telefone;
     }
 
+    public int getNumeroPessoas() {
+        return numeroPessoas;
+    }
+
     public int getCodigoIdentificacao() {
         return this.codigoIdentificacao;
     }

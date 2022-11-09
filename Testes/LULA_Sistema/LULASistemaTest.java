@@ -1,5 +1,6 @@
 package LULA_Sistema;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +13,9 @@ class LULASistemaTest {
     void preparaSistema() {
         sistemaTest = new LULASistema();
         sistemaTest.cadastraLocal("CAA", "Central de Aulas", "1122");
+        sistemaTest.cadastraLocal("RH", "Relações Humanas", "7543");
         sistemaTest.cadastraComitiva(0, "Calourada", 100, "9988-3344");
+        sistemaTest.cadastraComitiva(9, "Formatura", 200, "5543-0978");
     }
 
     @Test
@@ -90,7 +93,7 @@ class LULASistemaTest {
 
     @Test
     void exibeComitivaExceptionsTest() {
-        exception = assertThrows(IllegalArgumentException.class, () -> {
+        exception = assertThrows(NullPointerException.class, () -> {
             sistemaTest.exibeComitiva(70);
         });
         assertEquals("Comitiva não existe", exception.getMessage());
@@ -98,12 +101,12 @@ class LULASistemaTest {
         exception = assertThrows(IndexOutOfBoundsException.class, () -> {
             sistemaTest.exibeComitiva(-1);
         });
-        assertEquals("Codigo Inválido", exception.getMessage());
+        assertEquals("Codigo Invalido", exception.getMessage());
 
         exception = assertThrows(IndexOutOfBoundsException.class, () -> {
             sistemaTest.exibeComitiva(100);
         });
-        assertEquals("Codigo Inválido", exception.getMessage());
+        assertEquals("Codigo Invalido", exception.getMessage());
     }
 
     @Test
@@ -118,4 +121,63 @@ class LULASistemaTest {
         });
         assertEquals("Local não existe", exception.getMessage());
     }
+
+    @Test
+    void listaLocaisTest() {
+        assertEquals("CAA - Central de Aulas - 1122\nRH - Relações Humanas - 7543\n", sistemaTest.listaLocais());
+    }
+
+    @Test
+    void listaLocaisExceptionsTest() {
+        exception = assertThrows(IllegalArgumentException.class, () -> {
+            LULASistema testaArrayVazioLocais = new LULASistema();
+            testaArrayVazioLocais.listaLocais();
+        });
+        assertEquals("Não ha locais cadastrados", exception.getMessage());
+    }
+
+    @Test
+    void listaComitivas() {
+        assertEquals("ID: 0\nComitiva: Calourada\nIntegrantes: 100\nContato: 9988-3344\nID: 9\nComitiva: Formatura\nIntegrantes: 200\nContato: 5543-0978\n", sistemaTest.listaComitivas());
+    }
+
+    @Test
+    void listaComitivasExceptionsTest() {
+        exception = assertThrows(IllegalArgumentException.class, () -> {
+           LULASistema testaArrayVazioComitivas = new LULASistema();
+           testaArrayVazioComitivas.listaComitivas();
+        });
+        assertEquals("Não ha comitivas cadastradas", exception.getMessage());
+    }
+
+    @Test
+    void registraVisitaTest() {
+        sistemaTest.registraVisita("CAA", 0);
+        assertEquals(100, sistemaTest.exibeVisistasLocal("CAA"));
+    }
+
+    @Test
+    void registraVisitaExceptionsTest() {
+        exception = assertThrows(IllegalArgumentException.class, () -> {
+           sistemaTest.registraVisita("KT", 0);
+        });
+        assertEquals("Esse Id de local nao existe", exception.getMessage());
+
+        exception = assertThrows(IndexOutOfBoundsException.class, () -> {
+           sistemaTest.registraVisita("CAA", -2);
+        });
+        assertEquals("Codigo Invalido", exception.getMessage());
+
+        exception = assertThrows(NullPointerException.class, () -> {
+            sistemaTest.registraVisita("CAA", 99);
+        });
+        assertEquals("Essa comitiva nao existe", exception.getMessage());
+    }
+
+    @Test
+    void exibeVisistasLocalTest() {
+        assertEquals(0, sistemaTest.exibeVisistasLocal("CAA"));
+    }
+
+
 }

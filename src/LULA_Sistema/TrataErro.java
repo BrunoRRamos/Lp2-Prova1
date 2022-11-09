@@ -15,7 +15,7 @@ public class TrataErro {
 
     public static void verificaPosicaoValida(int posicao) {
         if (posicao > 99 || posicao < 0) {
-            throw new IndexOutOfBoundsException("Codigo Inválido");
+            throw new IndexOutOfBoundsException("Codigo Invalido");
         }
     }
 }
